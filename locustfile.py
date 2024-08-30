@@ -6,7 +6,8 @@ class WebsiteUser(HttpUser):
 
     @task
     def hit(self):
-        if random.choice([True, False]):
-            self.client.get("/ping")
-        else:
-            self.client.get("/uuid")
+        self.client.get("/status/200")
+    
+    @task(3)
+    def fail(self):
+        self.client.get("/status/500")
