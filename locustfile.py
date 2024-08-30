@@ -8,6 +8,6 @@ class WebsiteUser(HttpUser):
     def hit(self):
         self.client.get("/status/200")
     
-    @task(3)
+    @task(10)
     def fail(self):
         self.client.get("/status/500")
